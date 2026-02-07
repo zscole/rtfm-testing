@@ -28,7 +28,7 @@ Documentation written by builders is almost always incomplete—they fill gaps u
 
 ### Step 1: Gather Test Parameters
 
-Use AskUserQuestion to collect:
+Collect from the user:
 
 1. **Task description** — What should someone accomplish after reading the docs?
 2. **Documentation source** — File paths, URLs, or inline content
@@ -36,29 +36,21 @@ Use AskUserQuestion to collect:
 
 ### Step 2: Load Documentation
 
-Read the target documentation using the Read tool:
+Read the target documentation files. For multiple files, glob for relevant patterns (e.g., `**/*.md`).
 
+### Step 3: Spawn Fresh Tester Agent
+
+Spawn an isolated agent with no prior context using the TESTER prompt from `{baseDir}/references/TESTER.md`.
+
+Provide the agent with:
 ```
-Read {documentation_path}
-```
+TASK: {task_description}
 
-Or for multiple files:
+---
 
-```
-Glob **/*.md
-Read each relevant file
-```
+DOCUMENTATION:
 
-### Step 3: Spawn Fresh Tester
-
-Use the Task tool to spawn an isolated agent with the TESTER prompt:
-
-```
-Task(
-  description: "RTFM test documentation",
-  prompt: "<load from {baseDir}/references/TESTER.md>\n\nTASK: {task_description}\n\n---\n\nDOCUMENTATION:\n\n{documentation_content}",
-  subagent_type: "general-purpose"
-)
+{documentation_content}
 ```
 
 The fresh agent will:
@@ -81,7 +73,7 @@ Review the gap report. Each gap type indicates a specific doc problem:
 
 ### Step 5: Fix and Repeat
 
-Update documentation to address gaps, then respawn and retest until clean.
+Update documentation to address gaps, then spawn a new tester and repeat until clean.
 
 ## Metrics
 

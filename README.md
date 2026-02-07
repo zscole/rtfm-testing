@@ -2,7 +2,7 @@
 
 > "If an amnesiac can't follow your docs, your docs suck."
 
-A Claude Code skill that tests documentation quality by spawning fresh agents with zero context.
+A methodology and agent skill for testing documentation quality by spawning fresh agents with zero context.
 
 ## What It Does
 
@@ -10,7 +10,7 @@ Spawns an isolated agent that attempts to complete a task using **only** your do
 
 ## Installation
 
-### Claude Code Skills Directory
+### As an Agent Skill
 
 ```bash
 # Clone to your skills directory
@@ -19,13 +19,11 @@ git clone https://github.com/zscole/rtfm-testing ~/.claude/skills/rtfm-testing
 
 ### Manual
 
-Copy the entire directory to your Claude Code skills location:
-- macOS/Linux: `~/.claude/skills/`
-- Or your project's `.claude/skills/` directory
+Copy the directory to your agent's skills location.
 
 ## Usage
 
-In Claude Code, trigger the skill with:
+Trigger the skill with:
 - `/rtfm`
 - "test my docs"
 - "validate documentation"
@@ -46,8 +44,8 @@ In Claude Code, trigger the skill with:
 
 ```
 rtfm-testing/
-├── SKILL.md              # Core skill (Claude Code loads this)
-├── README.md             # This file (GitHub audience)
+├── SKILL.md              # Core skill definition
+├── README.md             # This file
 └── references/
     ├── TESTER.md         # Fresh agent system prompt
     └── GAPS.md           # Gap report specification
@@ -57,7 +55,7 @@ rtfm-testing/
 
 1. Fork the repository
 2. Create a feature branch
-3. Test your changes with Claude Code
+3. Test your changes
 4. Submit a pull request
 
 ## License
