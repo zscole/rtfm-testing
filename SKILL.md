@@ -1,6 +1,13 @@
+---
+name: rtfm-testing
+description: Test documentation quality by spawning fresh agents with zero context. Validates that docs are complete, clear, and usable by newcomers. Use when testing READMEs, tutorials, setup guides, or API docs before publishing.
+---
+
 # RTFM Testing
 
 A documentation quality methodology that spawns fresh agents to validate whether docs are actually usable.
+
+> "If an amnesiac can't follow your docs, your docs suck."
 
 ## The Problem
 
