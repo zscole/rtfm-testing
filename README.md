@@ -56,13 +56,21 @@ The tester will:
 
 ## Installation
 
-### ClawHub
-```
+### ClawHub (recommended)
+
+Available on [ClawHub](https://clawhub.com/skills/rtfm-testing):
+
+```bash
 clawhub install rtfm-testing
 ```
 
 ### Manual
-Copy `SKILL.md`, `TESTER.md`, and `GAPS.md` to your skills directory.
+
+Copy `SKILL.md`, `TESTER.md`, and `GAPS.md` to your OpenClaw skills directory:
+
+```bash
+cp -r . ~/.openclaw/skills/rtfm-testing
+```
 
 ## License
 
